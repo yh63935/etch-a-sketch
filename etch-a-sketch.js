@@ -9,7 +9,7 @@ function createGrid(num) {
         divEl.style.height= `calc(100%/${num})`
         containerEl.append(divEl);
         divEl.addEventListener("mouseover", () => {
-            divEl.style.backgroundColor = "green";
+            divEl.style.backgroundColor=`rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
         } )
     }
 }
@@ -19,3 +19,8 @@ buttonEl.addEventListener("click", ()=> {
     createGrid(numSquares);     
 })
 
+function randomColor() {
+    // Get random number between 0 and 255)
+    let color = (Math.floor(Math.random() * 256));
+    return color;
+}

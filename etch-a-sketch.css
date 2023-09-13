@@ -1,12 +1,27 @@
 
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 600px;
+    height: 600px;
 }
 
 div {
-    border: 5px blue solid;
-    width: calc(100%/16);
-    box-sizing: border-box;
+    border: 1px black solid;
+}
+
+button {
+    margin: auto;
+    width: 300px;
+    height: 100px;
 }

@@ -1,5 +1,6 @@
 const containerEl = document.querySelector(".container");
 const buttonEl = document.querySelector("button");
+const inputEl = document.querySelector("input");
 let count = 0;
 let alphaValue = 0;
 
@@ -10,9 +11,7 @@ function increaseAlphaValue(el) {
     }
     else if (count<10) {
         el.count++;
-        console.log(count);
         el.alphaValue += 0.10;
-        console.log(alphaValue)
         return el.alphaValue;
     }
 }
@@ -33,17 +32,17 @@ function createGrid(num) {
 }
 
 buttonEl.addEventListener("click", ()=> {
-    let numSquares = parseInt(prompt("Insert number of squares per grid"));
-    createGrid(numSquares);     
+    let numSquares = parseInt(inputEl.value);
     clearGrid();
+    createGrid(numSquares);
 })
 
 function clearGrid() {
     containerEl.textContent ="";
 }
+
 function randomColor() {
     // Get random number between 0 and 255)
     let color = (Math.floor(Math.random() * 256));
     return color;
 }
-

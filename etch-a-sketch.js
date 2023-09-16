@@ -2,6 +2,7 @@ const containerEl = document.querySelector(".container");
 const createGridBtn = document.querySelector(".create-grid");
 const rainbowGridBtn = document.querySelector(".rainbow");
 const blckWhiteGridBtn = document.querySelector(".blk-white");
+const resetColorsBtn = document.querySelector(".reset-colors");
 const inputEl = document.querySelector("input");
 const inputMin = inputEl.getAttribute("min");
 const inputMax = inputEl.getAttribute("max");
@@ -36,7 +37,10 @@ function createGrid(num) {
     }
 }
 
-
+resetColorsBtn.addEventListener("click", ()=> {
+    let containerDivs = containerEl.querySelectorAll("div");
+    containerDivs.forEach(containerDiv => containerDiv.style.background = "unset")
+})
 
 // Change divs' background colors depending on the color mode button clicked
 function determineColorMode(event, colorMode, element) {
@@ -74,6 +78,7 @@ createGridBtn.addEventListener("click", ()=> {
 
 rainbowGridBtn.onclick = () => colorVal = "rainbow"
 blckWhiteGridBtn.onclick = () => colorVal = "bw"
+
 
 function clearGrid() {
     containerEl.textContent ="";

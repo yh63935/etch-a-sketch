@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="etch-a-sketch.css">
     <title>Etch-a-sketch</title>
 </head>
 <body>
     <main>
-        <div class="settings"></div>
-        <input type="number" placeholder="Enter number of squares per row">
-        <button class="create-grid">Create grid</button>
-        <button class="rainbow">Rainbow mode</button>
-        <button class ="blk-white">Black and white mode</button>
-        <div class="container"></div>
+        <h1>Etch-a-sketch</h1>
+        <div class="game">
+            <div class="settings">
+                <input min="0" max = "100" type="number" placeholder="Enter number of squares per row">
+                <button class="create-grid">Create grid</button>
+                <button class="rainbow">Rainbow mode</button>
+                <button class="blk-white">Black and white mode</button>
+                <button class="reset-colors">Reset colors</button>
+            </div>
+            <div class="container"></div>
+        </div>
+        </main>
     </main>
     <script src="etch-a-sketch.js"></script>
 </body>

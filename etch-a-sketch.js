@@ -1,8 +1,11 @@
 const containerEl = document.querySelector(".container");
 const createGridBtn = document.querySelector(".create-grid");
 const rainbowGridBtn = document.querySelector(".rainbow");
-const blckWhiteGridBtn = document.querySelector(".blk-white")
+const blckWhiteGridBtn = document.querySelector(".blk-white");
 const inputEl = document.querySelector("input");
+const inputMin = inputEl.getAttribute("min");
+const inputMax = inputEl.getAttribute("max");
+
 let colorVal = ""; // Default color mode is black and white mode
 let count = 0;
 let alphaValue = 0;
@@ -33,6 +36,8 @@ function createGrid(num) {
     }
 }
 
+
+
 // Change divs' background colors depending on the color mode button clicked
 function determineColorMode(event, colorMode, element) {
     if (colorMode ==="rainbow") {
@@ -43,10 +48,28 @@ function determineColorMode(event, colorMode, element) {
     }
 }
 
+function validateMinMax() {
+    if (parseInt(inputEl.value) < inputMin) {
+        alert("Value must be greater than or equal to 0");
+        return false;
+    } else if (parseInt(inputEl.value) > inputMax) {
+        alert("Value must be less than or equal to 100");
+        return false;
+    }
+    else if (inputEl.value==="") {
+        alert("Enter a numerical value");
+        return false;
+    }
+    return true;
+}
+
+
 createGridBtn.addEventListener("click", ()=> {
     let numSquares = parseInt(inputEl.value);
     clearGrid();
-    createGrid(numSquares);
+    if (validateMinMax()) {
+        createGrid(numSquares);
+    }
 })
 
 rainbowGridBtn.onclick = () => colorVal = "rainbow"

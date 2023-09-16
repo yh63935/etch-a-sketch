@@ -1,5 +1,5 @@
 
-html {
+* {
     box-sizing: border-box;
     font-family: 'Inter', 'Open Sans', 'Roboto', sans-serif;
     font-size: 24px;
@@ -23,10 +23,9 @@ h1 {
     flex-wrap: wrap;
     width: 600px;
     height: 600px;
-    border: 2px #112A46 solid;
 }
 
-.container div {
+.container, .container div {
     border: 2px #112A46 solid;
 }
 

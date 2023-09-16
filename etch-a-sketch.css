@@ -1,12 +1,21 @@
 
-* {
+html {
     box-sizing: border-box;
+    font-family: 'Inter', 'Open Sans', 'Roboto', sans-serif;
+    font-size: 24px;
 }
 
-main {
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.game {
     display: flex;
     width: 60%;
     justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .container {
@@ -14,14 +23,34 @@ main {
     flex-wrap: wrap;
     width: 600px;
     height: 600px;
+    border: 2px #112A46 solid;
 }
 
-div {
-    border: 1px black solid;
+.container div {
+    border: 2px #112A46 solid;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    color: #112A46;
+    border: 2px #112A46 solid;
+    background-color: #8ECDDD;
+}
+button, input {
+    margin: 1rem;
+    width: 300px;
+    text-align: center;
 }
 
 button {
-    margin: auto;
-    width: 300px;
     height: 100px;
+    border: 2px #8ECDDD solid;
+    background: #112A46;
+    color: #8ECDDD;
+    font-weight: 500;
+    font-size: 1rem;
 }

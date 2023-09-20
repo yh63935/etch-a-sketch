@@ -1,5 +1,5 @@
-html {
-    font-size: 16px;
+body {
+    min-width: 300px;
 }
 
 * {
@@ -30,8 +30,8 @@ h2 {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
 }
 
 .container, .container div {
@@ -41,13 +41,14 @@ h2 {
 .settings {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
 }
 
 [class$="-settings"] {
     display: flex;
     flex-direction: column;
     flex: 1;
-    max-width: 50%;
+    max-width: 35%;
 }
 
 input {
@@ -83,5 +84,14 @@ button {
 
     h2 {
         font-size: 2rem;
+    }
+
+    .container {
+        height: 600px;
+        width: 600px;
+    }
+
+    [class$="-settings"] {
+        max-width: 50%;
     }
 }

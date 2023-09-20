@@ -2,20 +2,25 @@
 * {
     box-sizing: border-box;
     font-family: 'Inter', 'Open Sans', 'Roboto', sans-serif;
-    font-size: 24px;
 }
 
 h1 {
     text-align: center;
+    font-size: 3rem;
+}
+
+h2 {
+    text-align: center;
     font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .game {
     display: flex;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: auto;
+    justify-content: space-evenly;
+    padding: 0 12rem;
 }
 
 .container {
@@ -31,6 +36,11 @@ h1 {
 
 .settings {
     display: flex;
+    align-items: flex-start;
+}
+
+[class$="-settings"] {
+    display: flex;
     flex-direction: column;
 }
 
@@ -39,10 +49,16 @@ input {
     border: 2px #112A46 solid;
     background-color: #8ECDDD;
 }
+
 button, input {
     margin: 1rem;
     width: 300px;
     text-align: center;
+    font-size: 1.5rem;
+}
+
+input::placeholder {
+    font-size: 1rem;
 }
 
 button {

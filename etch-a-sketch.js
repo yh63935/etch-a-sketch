@@ -2,12 +2,14 @@ const containerEl = document.querySelector(".container");
 const createGridBtn = document.querySelector(".create-grid");
 const rainbowGridBtn = document.querySelector(".rainbow");
 const blckWhiteGridBtn = document.querySelector(".blk-white");
-const resetColorsBtn = document.querySelector(".reset-colors");
+const resetGridBtn = document.querySelector(".reset-grid");
+const eraserBtn = document.querySelector(".eraser");
+const darkenBtn = document.querySelector(".darken");
 const inputEl = document.querySelector("input");
 const inputMin = inputEl.getAttribute("min");
 const inputMax = inputEl.getAttribute("max");
 
-let colorVal = ""; // Default color mode is black and white mode
+let colorVal = "eraser"; // Default color will be white
 let count = 0;
 let alphaValue = 0;
 
@@ -27,7 +29,6 @@ function increaseAlphaValue(el) {
 function createGrid(num) {
     for (let i=1; i<=num*num; i++) {
         const divEl = document.createElement("div");
-        divEl.innerText=i;
         divEl.style.width= `calc(100%/${num})`
         divEl.style.height= `calc(100%/${num})`
         containerEl.append(divEl);
@@ -37,7 +38,7 @@ function createGrid(num) {
     }
 }
 
-resetColorsBtn.addEventListener("click", ()=> {
+resetGridBtn.addEventListener("click", ()=> {
     let containerDivs = containerEl.querySelectorAll("div");
     containerDivs.forEach(containerDiv => containerDiv.style.background = "unset")
 })
@@ -45,19 +46,25 @@ resetColorsBtn.addEventListener("click", ()=> {
 // Change divs' background colors depending on the color mode button clicked
 function determineColorMode(event, colorMode, element) {
     if (colorMode ==="rainbow") {
-        element.style.backgroundColor=`rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+        element.style.backgroundColor =`rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+    }
+    else if (colorMode ==="darken") {
+        element.style.backgroundColor = `rgb(0,0,0,${increaseAlphaValue(event.target)})`;
+    }
+    else if (colorMode === "eraser") {
+        element.style.backgroundColor = "rgb(255,255,255)";
     }
     else {
-        element.style.backgroundColor= `rgb(0,0,0,${increaseAlphaValue(event.target)})`;
+        element.style.backgroundColor = "rgb(0,0,0)";
     }
 }
 
 function validateMinMax() {
     if (parseInt(inputEl.value) < inputMin) {
-        alert("Value must be greater than or equal to 0");
+        alert(`Value must be greater than or equal to ${inputMin}`);
         return false;
     } else if (parseInt(inputEl.value) > inputMax) {
-        alert("Value must be less than or equal to 100");
+        alert(`Value must be less than or equal to ${inputMax}`);
         return false;
     }
     else if (inputEl.value==="") {
@@ -76,8 +83,11 @@ createGridBtn.addEventListener("click", ()=> {
     }
 })
 
-rainbowGridBtn.onclick = () => colorVal = "rainbow"
-blckWhiteGridBtn.onclick = () => colorVal = "bw"
+// Set colorVal based on clicked button
+rainbowGridBtn.onclick = () => colorVal = "rainbow";
+blckWhiteGridBtn.onclick = () => colorVal = "bw";
+eraserBtn.onclick = () => colorVal = "eraser";
+darkenBtn.onclick = () => colorVal = "darken";
 
 
 function clearGrid() {

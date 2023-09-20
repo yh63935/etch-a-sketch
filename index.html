@@ -14,11 +14,19 @@
         <h1>Etch-a-sketch</h1>
         <div class="game">
             <div class="settings">
-                <input min="0" max = "100" type="number" placeholder="Enter number of squares per row">
-                <button class="create-grid">Create grid</button>
-                <button class="rainbow">Rainbow mode</button>
-                <button class="blk-white">Black and white mode</button>
-                <button class="reset-colors">Reset colors</button>
+                <div class="main-settings">
+                    <h2>General Settings</h2>
+                    <input min="1" max = "50" type="number" placeholder="Enter number of squares per row">
+                    <button class="create-grid">Create grid</button>
+                    <button class="reset-grid">Reset grid</button>
+                </div>
+                <div class="color-settings">
+                    <h2>Color Settings</h2>
+                    <button class="rainbow">Rainbow mode</button>
+                    <button class="blk-white">Black and white mode</button>
+                    <button class="darken">Darken mode</button>
+                    <button class="eraser">Eraser mode</button>
+                </div>
             </div>
             <div class="container"></div>
         </div>
